@@ -1280,46 +1280,45 @@
             <thead>
                 <tr>
                     <th style="text-align: left; padding-left: 40px;">Player</th>
-                    <th>Rank</th>
-                    <th>Streak</th>
-                    <th>WR (Season)</th>
-                    <th>WR (Last 20)</th>
+                    <th>RANGO</th>
+                    <th>RACHA</th>
+                    <th>WR (TEMPORADA)</th>
+                    <th>WR (ULTIMOS 20)</th>
                     <th>
                         <div style="display:flex; align-items:center; justify-content:center;">
-                            KDA & Impact
+                            KDA e Impacto
                             <div class="help-icon">?
                                 <span class="tooltip-text">
-                                    Based on <strong>Last 20 Games</strong>.<br>
-                                    <span style="color:#2deb90">KP</span> = Kill Participation.<br>
-                                    <span style="color:#ff5859">Death%</span> = Share of team's deaths (Lower is
-                                    better).
+                                    Basado en <strong>las ultimas 20 partidas</strong>.<br>
+                                    <span style="color:#2deb90">KP</span> = Participacion en kills<br>
+                                    <span style="color:#ff5859">Death%</span> = Porcentaje de muertes (cuanto menos, mejor)
                                 </span>
                             </div>
                         </div>
                     </th>
                     <th>
                         <div style="display:flex; align-items:center; justify-content:center;">
-                            Toxicity
+                            Toxicida
                             <div class="help-icon">?
                                 <span class="tooltip-text">
-                                    Average of <strong>"?"</strong> (Missing) and <strong>"Push Forward"</strong> pings
-                                    per game.
+                                    media de <strong>"?"</strong> (Enemigo desaparecido) y <strong>"Al ataque"</strong> pings
+                                    por partida.
                                 </span>
                             </div>
                         </div>
                     </th>
                     <th>
                         <div style="display:flex; align-items:center; justify-content:center;">
-                            Trend
+                            Tendencia
                             <div class="help-icon">
                                 ?
                                 <span class="tooltip-text">
-                                    Exact LP gain/loss since the daily midnight snapshot (00:05).
+                                    Perdida/ ganancia de LP exactp desde el actualizado diario (00:05).
                                 </span>
                             </div>
                         </div>
                     </th>
-                    <th>Badge</th>
+                    <th>Insignias</th>
                 </tr>
             </thead>
             <tbody>
@@ -1328,7 +1327,7 @@
     </div>
 
     <div class="visual-stats-container" id="visualStats" style="display: none;">
-        <h2 class="visual-stats-title">Visual Statistics - Last 20 Games</h2>
+        <h2 class="visual-stats-title">Estadisticas visuales - Ultimas 20 Partidas</h2>
         <div class="player-stats-grid" id="playerStatsGrid">
             </div>
     </div>
@@ -1344,17 +1343,17 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle" style="color:#c8aa6e; border-bottom:1px solid #333; padding-bottom:10px;">Details</h2>
+            <h2 id="modalTitle" style="color:#c8aa6e; border-bottom:1px solid #333; padding-bottom:10px;">Detalles</h2>
 
             <div class="match-header">
-                <span style="text-align:left">Champion</span>
-                <span>VS</span> <span>Role</span>
+                <span style="text-align:left">Campeon</span>
+                <span>VS</span> <span>Rol</span>
                 <span>KDA</span>
                 <span>CS (Min)</span>
-                <span>Vision (Pink)</span>
-                <span>Duration</span>
-                <span>Result</span>
-                <span>Date</span>
+                <span>Vision (Rosa)</span>
+                <span>Duracion</span>
+                <span>Resultado</span>
+                <span>Fecha</span>
             </div>
 
             <div id="modalBody"></div>
