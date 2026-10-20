@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -1262,28 +1262,28 @@
 
     <div id="loading">
         <div class="spinner"></div>
-        <p style="color:#c8aa6e; letter-spacing:1px;">Summoning data from the Void...</p>
-        <p style="color:#666; font-size:0.8em;">(Manual refresh may take ~30s, please wait!)</p>
+        <p style="color:#c8aa6e; letter-spacing:1px;">Cargando dato de la grieta...</p>
+        <p style="color:#666; font-size:0.8em;">(actualizacion manual tarda unos 30s, paciencia)</p>
     </div>
 
     <div class="container" id="dashboard">
         <div class="refresh-controls">
             <button id="refreshBtn" class="refresh-btn" onclick="manualRefresh()" disabled>
                 <span id="refreshIcon">↻</span>
-                <span id="refreshText">Refresh</span>
+                <span id="refreshText">Actualizar</span>
             </button>
             <div class="last-updated">
-                <span id="lastUpdatedText">Last updated: Never</span>
+                <span id="lastUpdatedText">Ultima actualizacion: Nunca</span>
             </div>
         </div>
         <table id="statsTable">
             <thead>
                 <tr>
-                    <th style="text-align: left; padding-left: 40px;">Player</th>
+                    <th style="text-align: left; padding-left: 40px;">Jugador</th>
                     <th>RANGO</th>
                     <th>RACHA</th>
-                    <th>WR (TEMPORADA)</th>
-                    <th>WR (ULTIMOS 20)</th>
+                    <th>WR</th>
+                    <th>ULTIMAS 20</th>
                     <th>
                         <div style="display:flex; align-items:center; justify-content:center;">
                             KDA e Impacto
@@ -1301,8 +1301,7 @@
                             Toxicida
                             <div class="help-icon">?
                                 <span class="tooltip-text">
-                                    media de <strong>"?"</strong> (Enemigo desaparecido) y <strong>"Al ataque"</strong> pings
-                                    por partida.
+                                    media de <strong>"?"</strong> (Enemigo desaparecido) y <strong>"Al ataque"</strong>
                                 </span>
                             </div>
                         </div>
@@ -1313,7 +1312,7 @@
                             <div class="help-icon">
                                 ?
                                 <span class="tooltip-text">
-                                    Perdida/ ganancia de LP exactp desde el actualizado diario (00:05).
+                                    Perdida/ ganancia de LP desde el actualizado diario (01:05).
                                 </span>
                             </div>
                         </div>
@@ -1350,7 +1349,7 @@
                 <span>VS</span> <span>Rol</span>
                 <span>KDA</span>
                 <span>CS (Min)</span>
-                <span>Vision (Rosa)</span>
+                <span>Vision (wards)</span>
                 <span>Duracion</span>
                 <span>Resultado</span>
                 <span>Fecha</span>
@@ -1731,7 +1730,7 @@
 
                         const isWin = match.Win;
                         const resultClass = isWin ? 'match-win' : 'match-loss';
-                        const resultText = isWin ? "VICTORY" : "DEFEAT";
+                        const resultText = isWin ? "VICTORIA" : "DERROTA";
                         const role = match.Role === "UTILITY" ? "SUPPORT" : match.Role;
 
                         // Date
@@ -1739,7 +1738,7 @@
                         if (match.Date) {
                             try {
                                 const dateObj = new Date(match.Date);
-                                dateStr = dateObj.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+                                dateStr = dateObj.toLocaleDateString('es-es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
                             } catch (e) { }
                         }
 
@@ -1790,30 +1789,30 @@
                             <div id="details-${index}" class="match-details">
                                 <div class="stats-grid">
                                     <div class="stat-box">
-                                        <div class="stat-label">Damage Dealt (DPM)</div>
+                                        <div class="stat-label">Daño inflingido</div>
                                         <div class="stat-value dmg-text">${safeNum(match.DamageDealt)} <span style="font-size:0.65em; color:#888">(${safeNum(match.DPM)}/m)</span></div>
                                         <div style="font-size:0.75em; color:#aaa; margin-top:4px;">Share: <strong>${match.DmgShare}%</strong></div>
                                     </div>
                                     <div class="stat-box">
-                                        <div class="stat-label">Kill Participation</div>
+                                        <div class="stat-label">Participacion en kills</div>
                                         <div class="stat-value" style="color:${kpColor}">${match.KP}%</div>
-                                        <div style="font-size:0.75em; color:#888; margin-top:4px;">Team Kills: ${match.TeamKills || '?'}</div>
+                                        <div style="font-size:0.75em; color:#888; margin-top:4px;">Kills de equipo: ${match.TeamKills || '?'}</div>
                                     </div>
-                                    <div class="stat-box"><div class="stat-label">Damage Taken</div><div class="stat-value" style="color:#aaa">${safeNum(match.DamageTaken)}</div></div>
-                                    <div class="stat-box"><div class="stat-label">Healing</div><div class="stat-value heal-text">${safeNum(match.Heal)}</div></div>
-                                    <div class="stat-box"><div class="stat-label">Obj. Damage</div><div class="stat-value" style="color:#c8aa6e">${safeNum(match.DmgObj)}</div></div>
+                                    <div class="stat-box"><div class="stat-label">Daño recibido</div><div class="stat-value" style="color:#aaa">${safeNum(match.DamageTaken)}</div></div>
+                                    <div class="stat-box"><div class="stat-label">Curacion</div><div class="stat-value heal-text">${safeNum(match.Heal)}</div></div>
+                                    <div class="stat-box"><div class="stat-label">Daño de objeto</div><div class="stat-value" style="color:#c8aa6e">${safeNum(match.DmgObj)}</div></div>
                                     
                                     <div class="stat-box">
-                                        <div class="stat-label">Gold (G/min)</div>
+                                        <div class="stat-label">Oro (oro/min)</div>
                                         <div class="stat-value gold-text">${safeNum(match.Gold)} <span style="font-size:0.6em; color:#888">(${match.GoldMin}/m)</span></div>
                                     </div>
                                     <div class="stat-box">
-                                        <div class="stat-label">Death Share</div>
+                                        <div class="stat-label">% de muertes</div>
                                         <div class="stat-value" style="color:${deathColor}">${match.DeathShare}%</div>
-                                        <div style="font-size:0.75em; color:#888; margin-top:4px;">Team Deaths: ${match.TeamDeaths || '?'}</div>
+                                        <div style="font-size:0.75em; color:#888; margin-top:4px;">Muertes del equipo: ${match.TeamDeaths || '?'}</div>
                                     </div>
                                     <div class="stat-box">
-                                        <div class="stat-label">Toxic Pings</div>
+                                        <div class="stat-label">Pings Toxicos</div>
                                         <div class="stat-value" style="color:#ff5859">${match.Pings}</div>
                                     </div>
                                 </div>
@@ -1882,7 +1881,7 @@
                 const champChartContainer = document.createElement('div');
                 champChartContainer.className = 'chart-container';
                 champChartContainer.innerHTML = `
-                    <div class="chart-title">Top Champions</div>
+                    <div class="chart-title">Top campeones</div>
                     <div class="pie-wrapper"><canvas id="champChart-${player.name}"></canvas></div>
                     <div id="legend-champ-${player.name}" class="custom-legend"></div>
                 `;
@@ -1892,7 +1891,7 @@
                 const rolesChartContainer = document.createElement('div');
                 rolesChartContainer.className = 'chart-container';
                 rolesChartContainer.innerHTML = `
-                    <div class="chart-title">Preferred Roles</div>
+                    <div class="chart-title">Calle preferida</div>
                     <div class="pie-wrapper"><canvas id="rolesChart-${player.name}"></canvas></div>
                     <div id="legend-roles-${player.name}" class="custom-legend"></div>
                 `;
@@ -1911,7 +1910,7 @@
                 const perfSection = document.createElement('div');
                 perfSection.className = 'perf-stats-section';
                 perfSection.innerHTML = `
-                    <div class="perf-stats-title">Farming &amp; Impact <span style="color:#444; font-size:0.85em;">(lane roles only)</span></div>
+                    <div class="perf-stats-title">Farmeo e impacto <span style="color:#444; font-size:0.85em;">(solo calles)</span></div>
                     <div class="perf-stats-row">
                         <div class="perf-stat-box">
                             <div class="perf-stat-icon">🌾</div>
@@ -1921,14 +1920,14 @@
                         <div class="perf-stat-box">
                             <div class="perf-stat-icon">⚔️</div>
                             <div class="perf-stat-value">${avgDmgShare}%</div>
-                            <div class="perf-stat-label">Team Dmg Share</div>
+                            <div class="perf-stat-label">% daño del equipo</div>
                         </div>
                         ${player.AvgCSMin10 != null ? (() => { const v = player.AvgCSMin10; const col = v >= 7 ? '#2deb90' : v >= 6 ? '#ff8c00' : '#ff5859'; return `<div class="perf-stat-box"><div class="perf-stat-icon">⏱️</div><div class="perf-stat-value" style="color:${col}">${v.toFixed(1)}</div><div class="perf-stat-label">CS/min @10</div></div>`; })() : ''}
                         ${player.AvgSoloKills != null ? (() => { const v = player.AvgSoloKills; const col = v >= 1.5 ? '#2deb90' : v >= 0.7 ? '#ff8c00' : '#ff5859'; return `<div class="perf-stat-box"><div class="perf-stat-icon">🗡️</div><div class="perf-stat-value" style="color:${col}">${v.toFixed(1)}</div><div class="perf-stat-label">Solo Kills</div></div>`; })() : ''}
-                        ${player.AvgPlates != null ? (() => { const v = player.AvgPlates; const col = v >= 2.5 ? '#2deb90' : v >= 1.5 ? '#ff8c00' : '#ff5859'; return `<div class="perf-stat-box"><div class="perf-stat-icon">🏰</div><div class="perf-stat-value" style="color:${col}">${v.toFixed(1)}</div><div class="perf-stat-label">Plates</div></div>`; })() : ''}
+                        ${player.AvgPlates != null ? (() => { const v = player.AvgPlates; const col = v >= 2.5 ? '#2deb90' : v >= 1.5 ? '#ff8c00' : '#ff5859'; return `<div class="perf-stat-box"><div class="perf-stat-icon">🏰</div><div class="perf-stat-value" style="color:${col}">${v.toFixed(1)}</div><div class="perf-stat-label">Placas</div></div>`; })() : ''}
                     </div>
-                    ${nonSupMatchesWith10.length > 0 ? `<div class="cs-chart-label">⏱ CS/min @10 — Early laning</div><div class="cs-chart-container"><canvas id="${cs10ChartId}"></canvas></div>` : ''}
-                    ${nonSupMatches.length > 0 ? `<div class="cs-chart-label">📈 CS/min — Full game</div><div class="cs-chart-container"><canvas id="${csChartId}"></canvas></div>` : ''}
+                    ${nonSupMatchesWith10.length > 0 ? `<div class="cs-chart-label">⏱ CS/min @10 — Callejeo inicial</div><div class="cs-chart-container"><canvas id="${cs10ChartId}"></canvas></div>` : ''}
+                    ${nonSupMatches.length > 0 ? `<div class="cs-chart-label">📈 CS/min — Partida entera</div><div class="cs-chart-container"><canvas id="${csChartId}"></canvas></div>` : ''}
                 `;
                 playerCard.appendChild(perfSection);
 
@@ -1940,12 +1939,12 @@
                     const champIconUrl = `https://ddragon.leagueoflegends.com/cdn/${ddragonVersion}/img/champion/${worstPingsGame.Champion}.png`;
                     worstSection.innerHTML = `
                         <div class="personal-worst-title">
-                            Ping Record
+                            Record de pings
                         </div>
                         <div class="personal-worst-content">
                             <div style="display:flex; align-items:center; gap:8px; margin-bottom:5px;">
                                 <img src="${champIconUrl}" style="width:32px; height:32px; border-radius:4px; border:1px solid #444;">
-                                <strong>${worstPingsGame.Champion}</strong> - ${worstPingsGame.totalPings} pings total
+                                <strong>${worstPingsGame.Champion}</strong> - ${worstPingsGame.totalPings} pings totales
                             </div>
                             <div class="game-info">
                                 ${worstPingsGame.dateStr} - <span class="result-${worstPingsGame.win ? 'win' : 'loss'}">${worstPingsGame.win ? 'VICTORY' : 'DEFEAT'}</span> - ${worstPingsGame.kda}
